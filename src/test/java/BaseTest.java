@@ -13,7 +13,7 @@ import java.time.Duration;
 import java.util.UUID;
 
 public class BaseTest {
-public static WebDriver driver=null;
+public static WebDriver driver;
     static String url = "https://qa.koel.app/";
     @BeforeSuite
     static void setupClass() {

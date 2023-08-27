@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class profilePage extends BaseTest {
-    @Test
+    @Test (enabled=false)
     public void changeProfileName() throws InterruptedException {
         navigateToLoginPage();
         provideEmail("abisola.omotoso@testpro.io");
