@@ -30,7 +30,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
-//        WebDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
@@ -70,7 +70,7 @@ public void chosenSong(){
     chosenSong.click();
 }
 public void addToButton(){
-    WebElement addTo = driver.findElement(By.cssSelector("[class='has-sub']"));
+    WebElement addTo = driver.findElement(By.cssSelector(".btn-add-to"));
     addTo.click();
 }
 
