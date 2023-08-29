@@ -5,7 +5,7 @@ public class LoginTests extends BaseTest {
     public void loginEmptyEmailPassword() {
 navigateToLoginPage();
 provideEmail();
-providePassword();
+providePassword( );
 clickSubmit();
 
 
