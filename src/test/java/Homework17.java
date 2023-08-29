@@ -3,10 +3,10 @@ import org.testng.annotations.Test;
 public class Homework17 extends BaseTest {
 
     @Test
-   public static void addSongToPlayList(){
+   public void addSongToPlayList(){
         navigateToLoginPage();
-        provideEmail("abisola.omotoso@testpro.io");
-        providePassword("te$tStudent");
+        provideEmail();
+        providePassword();
         clickSubmit();
         searchTab("somewhere in the dark");
         viewAllButton();

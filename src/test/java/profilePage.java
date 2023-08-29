@@ -7,8 +7,8 @@ public class profilePage extends BaseTest {
     @Test (enabled=false)
     public void changeProfileName() throws InterruptedException {
         navigateToLoginPage();
-        provideEmail("abisola.omotoso@testpro.io");
-        providePassword("te$tStudent");
+        provideEmail();
+        providePassword();
         clickSubmit();
         clickAvatar();
 
