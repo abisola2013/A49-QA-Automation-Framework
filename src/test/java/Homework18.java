@@ -26,7 +26,7 @@ public class Homework18 extends BaseTest{
         playButton.click();
     }
     public void selectSong() {
-        WebElement clickOnSong = driver.findElement(By.cssSelector("#songsWrapper .item-container  tr.song-item.playing.selected  td.title"));
+        WebElement clickOnSong = driver.findElement(By.cssSelector("#songsWrapper .item-container  table  tr.song-item.selected  td.title"));
         clickOnSong.click();
     }
 
