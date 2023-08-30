@@ -7,8 +7,9 @@
         <classes>
             <class name="Homework18">
                     <methods>
-                        <method name = "playSong"/>
+                        <include name = "playSong"/>
                     </methods>
+            </class>
         </classes>
     </test>
 </suite>
