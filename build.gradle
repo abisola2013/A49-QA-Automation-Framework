@@ -19,8 +19,8 @@ test {
     useTestNG() {
         suites "src/test/resources/TestNG.xml"
     }
-    test {
-        useNewTestNG() {
+    task customTask(type: Test) {
+        useTestNG() {
             suites "src/test/resources/NewTestNG.xml"
         }
     }
