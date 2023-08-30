@@ -105,4 +105,11 @@ public void clickSaveButton(){
     public void closeBowser(){
         driver.quit();
     }
+
+    public void loginWithCorrectCredentials() {
+        navigateToLoginPage();
+        provideEmail();
+        providePassword( );
+        clickSubmit();
+    }
 }

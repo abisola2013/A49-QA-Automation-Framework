@@ -6,10 +6,7 @@ import org.testng.annotations.Test;
 public class profilePage extends BaseTest {
     @Test (enabled=false)
     public void changeProfileName() throws InterruptedException {
-        navigateToLoginPage();
-        provideEmail();
-        providePassword();
-        clickSubmit();
+        loginWithCorrectCredentials();
         clickAvatar();
 
         String random = generateRandom();

@@ -6,10 +6,7 @@ public class Homework17 extends BaseTest {
 
     @Test
    public void addSongToPlayList() throws InterruptedException {
-        navigateToLoginPage();
-        provideEmail();
-        providePassword();
-        clickSubmit();
+        loginWithCorrectCredentials();
         Thread.sleep(2000);
         searchTab("somewhere in the dark");
         viewAllButton();
