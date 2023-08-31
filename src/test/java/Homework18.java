@@ -9,7 +9,6 @@ public class Homework18 extends BaseTest{
     public void playSong(){
         loginWithCorrectCredentials();
         clickOnAllSongs();
-        selectSong();
         playASong();
         soundBarVisible();
     }
@@ -22,12 +21,11 @@ public class Homework18 extends BaseTest{
         Assert.assertTrue(soundBar.isDisplayed());
     }
     public void playASong() {
-        WebElement playButton = driver.findElement(By.cssSelector("#mainFooter .side.player-controls .play"));
+        WebElement hoverClick = driver.findElement(By.cssSelector("[data-testid='play-btn']"));
+        WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
+
+        hoverClick.click();
         playButton.click();
-    }
-    public void selectSong() {
-        WebElement clickOnSong = driver.findElement(By.cssSelector("#songsWrapper .item-container  table  tr.song-item.selected  td.title"));
-        clickOnSong.click();
     }
 
     public void clickOnAllSongs() {
