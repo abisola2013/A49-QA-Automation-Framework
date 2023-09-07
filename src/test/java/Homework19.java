@@ -21,10 +21,9 @@ public class Homework19 extends BaseTest {
 
     }
     public void deleteNewPlayList(){
-        WebElement deletePlayList = driver.findElement(By.cssSelector(""));
-//        WebElement confirmDeleteCommand = driver.findElement(By.cssSelector("body :nth-child(7)  button.ok"));
-        deletePlayList.click();
-//       confirmDeleteCommand.click();
+        WebElement deletePlayList = driver.findElement(By.cssSelector("[data-testid='playlist-context-menu-delete-70382']"));
+        WebElement confirmDeleteCommand = driver.findElement(By.cssSelector("body :nth-child(6)  button.ok"));
+       confirmDeleteCommand.click();
 
     }
     public void notificationDeleteNewPlaylist(){
