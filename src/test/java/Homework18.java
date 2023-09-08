@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,9 +22,11 @@ public class Homework18 extends BaseTest{
         Assert.assertTrue(soundBar.isDisplayed());
     }
     public void playASong() {
-        WebElement hoverClick = driver.findElement(By.cssSelector("[data-testid='play-btn']"));
-        WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
+        WebElement panel = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.side.player-controls")));
+        WebElement hoverClick = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='play-btn']")));
+        WebElement playButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
 
+        panel.click();
         hoverClick.click();
         playButton.click();
     }
