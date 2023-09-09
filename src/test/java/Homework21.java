@@ -26,8 +26,8 @@ public class Homework21 extends BaseTest {
     }
 
     public void clickOnNewPlayList() {
-        WebElement editPlaylist =wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("")));
-        editPlaylist.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(""))).click();
+
 
 
 
