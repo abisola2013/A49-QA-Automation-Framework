@@ -8,7 +8,7 @@ public class Homework17 extends BaseTest {
     @Test
    public void addSongToPlayList() throws InterruptedException {
         loginWithCorrectCredentials();
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
         searchTab("somewhere in the dark");
         viewAllButton();
         clickOnSong();
