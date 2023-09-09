@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,6 +24,7 @@ public class BaseTest {
 
 public String url;
 WebDriverWait wait;
+    Actions actions= new Actions(driver);
 
     @BeforeSuite
     static void setupClass() {
@@ -34,12 +36,12 @@ WebDriverWait wait;
         //      Added ChromeOptions argument below to fix websocket error
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-
+        url= BaseURL;
         driver = new ChromeDriver(options);
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
        driver.manage().window().maximize();
         wait= new WebDriverWait(driver,Duration.ofSeconds(10000));
-        url= BaseURL;
+//        Actions actions= new Actions(driver);
     }
 
     public void navigateToLoginPage(){

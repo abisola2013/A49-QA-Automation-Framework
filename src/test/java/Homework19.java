@@ -9,11 +9,11 @@ public class Homework19 extends BaseTest {
     @Test
     public void deletePlaylist() throws InterruptedException {
         loginWithCorrectCredentials();
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         newPlayList();
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         deleteNewPlayList();
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         notificationDeleteNewPlaylist();
 
     }
