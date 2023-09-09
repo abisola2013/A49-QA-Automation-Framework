@@ -19,11 +19,11 @@ public class Homework21 extends BaseTest {
 
 }
 
-   public String playlistNotification() {
+   public void playlistNotification() {
      WebElement successNotification= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(" div.success.show")));
-     return successNotification.getText();
+       successNotification.getText();
 
-    }
+   }
 
     public void doubleClickNewPlaylist() {
        WebElement doubleClickNewPlaylist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(" [data-testid='playlist-context-menu-edit-70515']")));
