@@ -36,9 +36,9 @@ WebDriverWait wait;
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
-        wait= new WebDriverWait(driver,Duration.ofSeconds(10000));
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
        driver.manage().window().maximize();
+        wait= new WebDriverWait(driver,Duration.ofSeconds(10000));
         url= BaseURL;
     }
 

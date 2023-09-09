@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,12 +20,12 @@ public class Homework19 extends BaseTest {
 
 
     public void newPlayList(){
-        WebElement newPlayList = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
+        WebElement newPlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
         newPlayList.click();
 
     }
     public void deleteNewPlayList(){
-        WebElement deletePlayList = driver.findElement(By.cssSelector(".del.btn-delete-playlist"));
+        WebElement deletePlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".del.btn-delete-playlist")));
 //        WebElement confirmDeleteCommand = driver.findElement(By.cssSelector(" body  :nth-child(7)  button.ok"));
 
         deletePlayList.click();
@@ -32,7 +33,7 @@ public class Homework19 extends BaseTest {
 
     }
     public void notificationDeleteNewPlaylist(){
-        WebElement notificationDeleteNewPlaylist = driver.findElement(By.cssSelector("div.success.show"));
+        WebElement notificationDeleteNewPlaylist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
         Assert.assertTrue(notificationDeleteNewPlaylist.isDisplayed());
 
     }
