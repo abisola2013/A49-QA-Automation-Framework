@@ -18,7 +18,7 @@ public class Homework18 extends BaseTest{
 
 
     public void soundBarVisible() {
-        WebElement soundBar = driver.findElement(By.cssSelector("#mainFooter .media-info-wrap .other-controls  button:nth-child(2)  img"));
+        WebElement soundBar = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#mainFooter .media-info-wrap .other-controls  button:nth-child(2)  img")));
         Assert.assertTrue(soundBar.isDisplayed());
     }
     public void playASong() {
@@ -32,7 +32,7 @@ public class Homework18 extends BaseTest{
     }
 
     public void clickOnAllSongs() {
-        WebElement allSongs = driver.findElement(By.cssSelector("#sidebar section.music li:nth-child(3) a"));
+        WebElement allSongs = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#sidebar section.music li:nth-child(3) a")));
         allSongs.click();
     }
 }

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -35,9 +36,9 @@ WebDriverWait wait;
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
-        wait= new WebDriverWait(driver,Duration.ofSeconds(10000));
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
        driver.manage().window().maximize();
+        wait= new WebDriverWait(driver,Duration.ofSeconds(10000));
         url= BaseURL;
     }
 
@@ -46,50 +47,50 @@ WebDriverWait wait;
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
     public  void provideEmail(){
-        WebElement emailAddress= driver.findElement(By.cssSelector("input[type='email']"));
+        WebElement emailAddress= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='email']")));
         emailAddress.clear();
         emailAddress.sendKeys("abisola.omotoso@testpro.io");
     }
 
     public void providePassword() {
-        WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
+        WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='password']")));
         passwordField.clear();
         passwordField.sendKeys("te$t$tudent");
     }
 public  void clickSubmit() {
-    WebElement submitBtn = driver.findElement(By.cssSelector("button[type='submit']"));
+    WebElement submitBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[type='submit']")));
     submitBtn.click();
 }
  public  void searchTab(String song){
-        WebElement searchTab = driver.findElement(By.cssSelector(" input[type='search']"));
+        WebElement searchTab = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='search']")));
         searchTab.clear();
         searchTab.sendKeys(song);
  }
 
 public  void viewAllButton(){
-        WebElement viewAll = driver.findElement(By.cssSelector("[data-test='view-all-songs-btn']"));
+        WebElement viewAll = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-test='view-all-songs-btn']")));
         viewAll.click();
 }
 public void chosenSong(){
-    WebElement chosenSong = driver.findElement(By.xpath("//section[@id='searchExcerptsWrapper']//article [@class='playing']//span[@class='details']"));
+    WebElement chosenSong = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='searchExcerptsWrapper']//article [@class='playing']//span[@class='details']")));
     chosenSong.click();
 }
 public void addToButton(){
-    WebElement addTo = driver.findElement(By.cssSelector(".btn-add-to"));
+    WebElement addTo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".btn-add-to")));
     addTo.click();
 }
 
 public void bisolaPlayList(){
-    WebElement bisolaPlayList = driver.findElement(By.cssSelector("[href='#!/playlist/66852']"));
+    WebElement bisolaPlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[href='#!/playlist/66852']")));
     bisolaPlayList.click();
 }
 
 public void clickAvatar() {
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+        WebElement avatarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar")));
         avatarIcon.click();
     }
 public void provideProfileName(String random){
-    WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
+    WebElement profileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='name']")));
     profileName.clear();
     profileName.sendKeys(random);
 }
@@ -98,12 +99,12 @@ public void provideProfileName(String random){
     }
 
 public void provideCurrentPassword(String password){
-     WebElement currentPassword= driver.findElement(By.cssSelector("[name='current_password']"));
+     WebElement currentPassword= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='current_password']")));
      currentPassword.clear();
      currentPassword.sendKeys(password);
 }
 public void clickSaveButton(){
-    WebElement clickSaveButton = driver.findElement(By.cssSelector("button.btn-submit"));
+    WebElement clickSaveButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.btn-submit")));
     clickSaveButton.click();
 }
     @AfterMethod

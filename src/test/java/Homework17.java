@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
 public class Homework17 extends BaseTest {
@@ -18,7 +19,7 @@ public class Homework17 extends BaseTest {
     }
 
     public void clickOnSong() {
-        WebElement clickOnSong= driver.findElement(By.cssSelector("#songResultsWrapper tr:nth-child(1) td.title"));
+        WebElement clickOnSong= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#songResultsWrapper tr:nth-child(1) td.title")));
         clickOnSong.click();
     }
 
