@@ -5,16 +5,16 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class profilePage extends BaseTest {
-    @Test (enabled=false)
-    public void changeProfileName() throws InterruptedException {
-        loginWithCorrectCredentials();
-        clickAvatar();
+    @Test(enabled = false)
+    public void changeProfileName() {
+        loginPage.loginWithCorrectCredentials();
+        homepage.clickAvatar();
 
-        String random = generateRandom();
+        String random = profilePage.generateRandom();
 
-        provideCurrentPassword("te$t$tudent");
-        provideProfileName(random);
-        clickSaveButton();
+        profilePage.provideCurrentPassword("te$t$tudent");
+        profilePage.provideProfileName(random);
+        profilePage.clickSaveButton();
 
         WebElement actualProfileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.view-profile>span")));
         Assert.assertEquals(actualProfileName.getText(),random);
@@ -22,4 +22,6 @@ public class profilePage extends BaseTest {
     }
 
 
-}
+    }
+
+
