@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 public class LoginPage extends BasePage {
 
@@ -14,12 +13,12 @@ public class LoginPage extends BasePage {
         super(driver, wait, actions);
     }
 
-    public void loginValidEmailPassword() {
-        loginWithCorrectCredentials();
-    }
+//    public void loginValidEmailPassword() {
+//        loginWithCorrectCredentials();
+//    }
 
     public void loginWithCorrectCredentials() {
-        navigateToLoginPage();
+//        navigateToLoginPage(url);
         provideEmail();
         providePassword( );
         clickSubmit();

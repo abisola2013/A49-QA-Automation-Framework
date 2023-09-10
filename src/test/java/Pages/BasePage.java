@@ -19,9 +19,9 @@ public class BasePage {
         this.actions =actions;
     }
 
-    public void navigateToLoginPage() {
-        driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+    public void navigateToLoginPage(String url) {
+        driver.get(this.url);
+        Assert.assertEquals(driver.getCurrentUrl(), this.url);
     }
 
     public String generateRandom(){
