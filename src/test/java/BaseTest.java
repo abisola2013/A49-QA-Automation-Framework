@@ -19,11 +19,15 @@ public class BaseTest {
 
     public  WebDriver driver =null;
 //    public  String url = "https://qa.koel.app/";
-
+//public static Actions actions=null;
 public String url;
 WebDriverWait wait;
-    Actions actions= new Actions(driver);
+
+//    Actions actions= new Actions(driver);
     BasePage basePage;
+
+    Actions actions;
+
 
     @BeforeSuite
     static void setupClass() {
@@ -41,10 +45,15 @@ WebDriverWait wait;
         driver = new ChromeDriver(options);
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
        driver.manage().window().maximize();
+
         wait= new WebDriverWait(driver,Duration.ofSeconds(10000));
         Actions actions= new Actions(driver);
         basePage = new BasePage(driver,wait,actions);
         basePage.navigateToLoginPage();
+
+        wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+         actions= new Actions(driver);
+
     }
 
 //    public void navigateToLoginPage(){
