@@ -26,8 +26,8 @@ public class Homework21 extends BaseTest {
    }
 
     public void doubleClickNewPlaylist() {
-        WebElement firstPlaylistElement= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(" [#playlists ul li:nth-child(3)']")));
-                actions.moveToElement(firstPlaylistElement).perform();
+        WebElement firstPlaylistElement= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists ul li:nth-child(3)")));
+        actions.doubleClick(firstPlaylistElement).perform();
     }
 
     public void renameNewPlaylist() {

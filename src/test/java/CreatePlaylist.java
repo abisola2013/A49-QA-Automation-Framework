@@ -18,13 +18,14 @@ public class CreatePlaylist extends BaseTest {
 
     }
     public void doubleClickPlayList() {
-        WebElement doubleClickPlayList=  wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(" [data-testid='playlist-context-menu-create-simple']")));
-        actions.moveToElement(doubleClickPlayList).perform();
+        WebElement doubleClickPlayList=  wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists nav ul li:nth-child(1)")));
+        actions.doubleClick(doubleClickPlayList).perform();
     }
 
     public void clickCreatePlaylistBtn() {
-        WebElement clickCreatePlaylistBtn =wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[ data-testid='sidebar-create-playlist-btn'] ")));
+        WebElement clickCreatePlaylistBtn =wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='sidebar-create-playlist-btn']")));
         actions.moveToElement(clickCreatePlaylistBtn).perform();
+        actions.doubleClick(clickCreatePlaylistBtn).perform();
 
     }
     public void enterNewPlaylist() {
@@ -36,7 +37,7 @@ public class CreatePlaylist extends BaseTest {
     }
 
     public void clickOnNewPlayList() {
-        WebElement newPlayList =wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists  li:nth-child(4)  a")));
+        WebElement newPlayList =wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists  li:nth-child(3) a")));
         actions.moveToElement(newPlayList).perform();
     }
     }
