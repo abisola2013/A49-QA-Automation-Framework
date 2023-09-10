@@ -18,9 +18,9 @@ import java.time.Duration;
 public class BaseTest {
 
     public  WebDriver driver ;
-   public  String url = "https://qa.koel.app/";
+//   public  String url = "https://qa.koel.app/";
 //public static Actions actions=null;
-//public String url;
+public String url;
 public WebDriverWait wait;
 
 //    Actions actions= new Actions(driver);
@@ -37,8 +37,8 @@ Profilepage profilePage;
         WebDriverManager.chromedriver().setup();
     }
     @BeforeMethod
-//    @Parameters({"BaseURL"})
-    public void launchBrowser(){
+    @Parameters({"BaseURL"})
+    public void launchBrowser(String BaseURL){
         //      Added ChromeOptions argument below to fix websocket error
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
