@@ -25,12 +25,6 @@ public class LoginPage extends BasePage {
         clickSubmit();
     }
 
-
-
-    //    public void navigateToLoginPage(String url){
-//        driver.get(url);
-//        Assert.assertEquals(driver.getCurrentUrl(), url);
-//    }
     public  void provideEmail(){
         WebElement emailAddress= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='email']")));
         emailAddress.clear();
