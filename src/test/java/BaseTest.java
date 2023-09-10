@@ -24,7 +24,7 @@ public class BaseTest {
 
 public String url;
 WebDriverWait wait;
-    Actions actions= new Actions(driver);
+    Actions actions;
 
     @BeforeSuite
     static void setupClass() {
@@ -40,8 +40,8 @@ WebDriverWait wait;
         driver = new ChromeDriver(options);
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
        driver.manage().window().maximize();
-        wait= new WebDriverWait(driver,Duration.ofSeconds(10000));
-//        Actions actions= new Actions(driver);
+        wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+        Actions actions= new Actions(driver);
     }
 
     public void navigateToLoginPage(){
