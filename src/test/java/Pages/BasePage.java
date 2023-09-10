@@ -11,6 +11,7 @@ public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
     Actions actions;
+    public String url;
 
     public BasePage(WebDriver driver, WebDriverWait wait,Actions actions){
         this.driver =driver;
@@ -18,7 +19,7 @@ public class BasePage {
         this.actions =actions;
     }
 
-    public void navigateToLoginPage(String url) {
+    public void navigateToLoginPage() {
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }

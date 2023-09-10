@@ -6,17 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import java.time.Duration;
-import java.util.UUID;
 
 public class BaseTest {
 
@@ -47,7 +44,7 @@ WebDriverWait wait;
         wait= new WebDriverWait(driver,Duration.ofSeconds(10000));
         Actions actions= new Actions(driver);
         basePage = new BasePage(driver,wait,actions);
-        basePage.navigateToLoginPage(url);
+        basePage.navigateToLoginPage();
     }
 
 //    public void navigateToLoginPage(){
