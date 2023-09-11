@@ -50,11 +50,11 @@ public class HomePage extends BasePage {
     }
     public void playASong() {
         WebElement panel = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.side.player-controls")));
+        actions.moveToElement(panel).perform();
         WebElement hoverClick = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='play-btn']")));
+        actions.moveToElement(hoverClick).perform();
         WebElement playButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
+        actions.click(playButton).perform();
 
-        panel.click();
-        hoverClick.click();
-        playButton.click();
     }
 }

@@ -61,8 +61,8 @@ public class PlaylistPage extends BasePage {
     public void deleteNewPlayList() {
         WebElement deletePlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".del.btn-delete-playlist")));
 //        WebElement confirmDeleteCommand = driver.findElement(By.cssSelector(" body  :nth-child(7)  button.ok"));
-
-        deletePlayList.click();
+actions.click(deletePlayList).perform();
+//        deletePlayList.click();
 //        confirmDeleteCommand.click();
 
     }
