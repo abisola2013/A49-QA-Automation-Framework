@@ -43,7 +43,7 @@ public class PlaylistPage extends BasePage {
     }
 
     public void bisolaPlayList() {
-        WebElement bisolaPlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[href='#!/playlist/66852']")));
+        WebElement bisolaPlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists ul  li:nth-child(4)  a")));
         bisolaPlayList.click();
     }
 

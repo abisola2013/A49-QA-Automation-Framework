@@ -11,7 +11,7 @@ public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
     Actions actions;
-    public String url;
+    public String url = "https://qa.koel.app/";
 
     public BasePage(WebDriver driver, WebDriverWait wait,Actions actions){
         this.driver =driver;

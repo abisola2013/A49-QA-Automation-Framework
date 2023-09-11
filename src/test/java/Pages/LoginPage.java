@@ -18,7 +18,7 @@ public class LoginPage extends BasePage {
 //    }
 
     public void loginWithCorrectCredentials() {
-//        navigateToLoginPage(url);
+       navigateToLoginPage(url);
         provideEmail();
         providePassword( );
         clickSubmit();
