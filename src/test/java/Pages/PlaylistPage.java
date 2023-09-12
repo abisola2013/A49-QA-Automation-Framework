@@ -47,7 +47,7 @@ public class PlaylistPage extends BasePage {
     }
 
     public PlaylistPage bisolaPlayList() {
-        WebElement bisolaPlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists ul li:nth-child(4)")));
+        WebElement bisolaPlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists ul li:nth-child(3)")));
         actions.moveToElement(bisolaPlayList).perform();
         actions.click(bisolaPlayList).perform();
 //        bisolaPlayList.click();

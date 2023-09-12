@@ -9,9 +9,9 @@ public class Homework18 extends BaseTest{
     @Test
     public void playSong(){
         loginPage.loginWithCorrectCredentials();
-        homepage.clickAllSongs();
-        homepage.playASong();
-        homepage. soundBarVisible();
+        homepage.clickAllSongs()
+                .playASong()
+                .soundBarVisible();
     }
 
 

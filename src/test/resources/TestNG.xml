@@ -11,7 +11,7 @@
             <class name="Homework19"/>
             <class name="LoginTests"/>
             <class name="BaseTest"/>
-<!--            <class name="profilePage"/>-->
+            <class name="profilePage"/>
             <class name="Homework17"/>
 
         </classes>

@@ -8,9 +8,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class profilePage extends BaseTest {
-    LoginPage loginPage;
-    HomePage homePage;
-    Profilepage profilepage;
+//    LoginPage loginPage;
+//    HomePage homePage;
+//    Profilepage profilepage;
 
     @Test
     public void changeProfileName() {
@@ -19,9 +19,9 @@ public class profilePage extends BaseTest {
 
         String random = profilePage.generateRandom();
 
-        profilePage.provideCurrentPassword("te$t$tudent");
-        profilePage.provideProfileName(random);
-        profilePage.clickSaveButton();
+        profilePage.provideCurrentPassword("te$t$tudent")
+                   .provideProfileName(random)
+                   .clickSaveButton();
 
         WebElement actualProfileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.view-profile>span")));
         Assert.assertEquals(actualProfileName.getText(),random);

@@ -16,23 +16,26 @@ public class Profilepage extends BasePage{
         String random = generateRandom();
     }
 
-    public void provideProfileName(String random){
+    public Profilepage provideProfileName(String random){
         WebElement profileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='name']")));
         profileName.clear();
         profileName.sendKeys(random);
+        return this;
     }
     public String generateRandom(){
         return UUID.randomUUID().toString().replace("","");
     }
 
-    public void provideCurrentPassword(String password){
+    public Profilepage provideCurrentPassword(String password){
         WebElement currentPassword= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='current_password']")));
         currentPassword.clear();
         currentPassword.sendKeys(password);
+        return this;
     }
-    public void clickSaveButton(){
+    public Profilepage clickSaveButton(){
         WebElement clickSaveButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.btn-submit")));
         clickSaveButton.click();
+        return this;
     }
 //    WebElement actualProfileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.view-profile>span")));
 //        Assert.assertEquals(actualProfileName.getText(),random);

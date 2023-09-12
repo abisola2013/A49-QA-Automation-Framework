@@ -15,46 +15,54 @@ public class HomePage extends BasePage {
         super(driver, wait, actions);
     }
 
-    public void clickOnPlaylist(String playListName) {
+    public HomePage clickOnPlaylist(String playListName) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'" + playListName + "')]"))).click();
+        return this;
     }
 
-    public void clickAllSongs() {
+    public HomePage clickAllSongs() {
         WebElement clickAllSongs = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(("li a.songs"))));
         actions.doubleClick(clickAllSongs).perform();
+        return this;
     }
 
-    public void searchTab(String song) {
+    public HomePage searchTab(String song) {
         WebElement searchTab = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='search']")));
         searchTab.clear();
         searchTab.sendKeys(song);
+        return this;
     }
 
-    public void viewAllButton() {
+    public HomePage viewAllButton() {
         WebElement viewAll = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-test='view-all-songs-btn']")));
         actions.doubleClick(viewAll).perform();
+        return this;
     }
 
-    public void clickAvatar() {
+    public HomePage clickAvatar() {
         WebElement avatarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar")));
         actions.doubleClick(avatarIcon).perform();
+        return this;
     }
 
-    public void soundBarVisible() {
+    public HomePage soundBarVisible() {
         WebElement soundBar = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#mainFooter .media-info-wrap .other-controls  button:nth-child(2)  img")));
         Assert.assertTrue(soundBar.isDisplayed());
+        return this;
     }
-    public void clickOnAllSongs() {
+    public HomePage clickOnAllSongs() {
         WebElement allSongs = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#sidebar section.music li:nth-child(3) a")));
         allSongs.click();
+        return this;
     }
-    public void playASong() {
+    public HomePage playASong() {
         WebElement panel = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.side.player-controls")));
         actions.moveToElement(panel).perform();
         WebElement hoverClick = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='play-btn']")));
         actions.moveToElement(hoverClick).perform();
         WebElement playButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='play-btn']")));
         actions.click(playButton).perform();
+        return this;
 
     }
 }
