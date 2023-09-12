@@ -10,9 +10,9 @@ public class Homework21 extends BaseTest {
     public void renamePlaylist(){
 
         loginPage.loginWithCorrectCredentials();
-   playlistPage.doubleClickNewPlaylist();
-   playlistPage. renameNewPlaylist();
-   playlistPage. playlistNotification();
+   playlistPage.doubleClickNewPlaylist()
+               .renameNewPlaylist()
+               .playlistNotification();
 
 }
 
