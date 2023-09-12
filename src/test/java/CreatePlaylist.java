@@ -10,10 +10,10 @@ public class CreatePlaylist extends BaseTest {
     @Test
     public void createPlaylist() {
         loginPage.loginWithCorrectCredentials();
-        playlistPage.clickCreatePlaylistBtn();
-       playlistPage. doubleClickPlayList();
-       playlistPage. enterNewPlaylist();
-        playlistPage.clickOnNewPlayList();
+        playlistPage.clickCreatePlaylistBtn()
+                    .doubleClickPlayList()
+                    .enterNewPlaylist()
+                    .clickOnNewPlayList();
 
 
     }
