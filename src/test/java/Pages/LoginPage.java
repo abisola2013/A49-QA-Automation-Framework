@@ -13,9 +13,6 @@ public class LoginPage extends BasePage {
         super(driver, wait, actions);
     }
 
-//    public void loginValidEmailPassword() {
-//        loginWithCorrectCredentials();
-//    }
 
     public void loginWithCorrectCredentials() {
        navigateToLoginPage(url);

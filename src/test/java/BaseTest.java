@@ -19,11 +19,10 @@ public class BaseTest {
 
     public  WebDriver driver ;
    public  String url = "https://qa.koel.app/";
-//public static Actions actions=null;
-//public String url;
+
 public WebDriverWait wait;
 
-//    Actions actions= new Actions(driver);
+
     BasePage basePage;
 LoginPage loginPage;
 HomePage homepage;
