@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.util.Random;
 import java.util.UUID;
 
 public class Profilepage extends BasePage{
@@ -37,8 +38,10 @@ public class Profilepage extends BasePage{
         clickSaveButton.click();
         return this;
     }
-//    WebElement actualProfileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.view-profile>span")));
+//    public Profilepage actualProfileName() {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+//        WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
 //        Assert.assertEquals(actualProfileName.getText(),random);
-
-
+//        return this;
+//    }
 }

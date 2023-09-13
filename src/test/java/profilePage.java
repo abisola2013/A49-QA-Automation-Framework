@@ -24,9 +24,9 @@ public class profilePage extends BaseTest {
                    .provideProfileName(random)
                    .clickSaveButton();
 
-        WebElement actualProfileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
-
-        Assert.assertEquals(actualProfileName.getText(),random);
+         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+         WebElement actualProfileName =driver.findElement(By.cssSelector("a.view-profile>span"));
+         Assert.assertEquals(actualProfileName.getText(),random);
 
     }
 

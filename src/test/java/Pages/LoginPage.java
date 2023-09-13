@@ -15,7 +15,14 @@ public class LoginPage extends BasePage {
     }
 
     @FindBy (css ="input[type='email']")
-    WebElement emailfield;
+    WebElement emailAddress;
+    @FindBy(css = "input[type='password']")
+    WebElement  passwordField;
+    @FindBy(css = "button[type='submit']")
+    WebElement submitBtn;
+
+
+
     public void loginWithCorrectCredentials() {
        navigateToLoginPage(url);
         provideEmail();
@@ -25,19 +32,22 @@ public class LoginPage extends BasePage {
 
     }
 
-    public  void provideEmail(){
-        WebElement emailAddress= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='email']")));
+    public  LoginPage provideEmail(){
+         wait.until(ExpectedConditions.visibilityOf(emailAddress));
         emailAddress.clear();
         emailAddress.sendKeys("abisola.omotoso@testpro.io");
+        return this;
     }
 
-    public void providePassword() {
-        WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='password']")));
+    public LoginPage providePassword() {
+         wait.until(ExpectedConditions.visibilityOf(passwordField));
         passwordField.clear();
         passwordField.sendKeys("te$t$tudent");
+        return this;
     }
-    public  void clickSubmit() {
-        WebElement submitBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[type='submit']")));
+    public  LoginPage clickSubmit() {
+        wait.until(ExpectedConditions.visibilityOf(submitBtn));
         submitBtn.click();
+        return this;
     }
 }
