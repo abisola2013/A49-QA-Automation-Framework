@@ -12,6 +12,7 @@ public class profilePage extends BaseTest {
 //    HomePage homePage;
 //    Profilepage profilepage;
 
+
     @Test
     public void changeProfileName() {
         loginPage.loginWithCorrectCredentials();
@@ -23,7 +24,8 @@ public class profilePage extends BaseTest {
                    .provideProfileName(random)
                    .clickSaveButton();
 
-        WebElement actualProfileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.view-profile>span")));
+        WebElement actualProfileName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+
         Assert.assertEquals(actualProfileName.getText(),random);
 
     }
