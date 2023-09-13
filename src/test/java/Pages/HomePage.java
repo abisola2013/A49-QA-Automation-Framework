@@ -11,8 +11,8 @@ import org.testng.Assert;
 public class HomePage extends BasePage {
 
 
-    public HomePage(WebDriver driver, WebDriverWait wait, Actions actions) {
-        super(driver, wait, actions);
+    public HomePage(WebDriver givenDriver) {
+        super(givenDriver);
     }
 
     public HomePage clickOnPlaylist(String playListName) {

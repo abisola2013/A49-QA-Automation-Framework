@@ -10,9 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasePage {
 
-    public LoginPage(WebDriver driver, WebDriverWait wait, Actions actions) {
-        super(driver, wait, actions);
-    }
+
 
     @FindBy (css ="input[type='email']")
     WebElement emailAddress;
@@ -21,10 +19,13 @@ public class LoginPage extends BasePage {
     @FindBy(css = "button[type='submit']")
     WebElement submitBtn;
 
+    public LoginPage(WebDriver givenDriver) {
+        super(givenDriver);
+    }
 
 
     public void loginWithCorrectCredentials() {
-       navigateToLoginPage(url);
+//       navigateToLoginPage();//lets add the navigation to koel in our @BeforeMethod
         provideEmail();
         providePassword( );
         clickSubmit();
@@ -32,7 +33,7 @@ public class LoginPage extends BasePage {
 
     }
 
-    public  LoginPage provideEmail(){
+    public LoginPage provideEmail(){
          wait.until(ExpectedConditions.visibilityOf(emailAddress));
         emailAddress.clear();
         emailAddress.sendKeys("abisola.omotoso@testpro.io");
