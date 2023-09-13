@@ -38,9 +38,12 @@ public class PlaylistPage extends BasePage {
     WebElement clickCreatePlaylistBtn;
     @FindBy (css ="#playlists  li:nth-child(3) a")
     WebElement clickOnNewPlayList;
-
     @FindBy (css =" div.success.show")
     WebElement playlistNotification;
+    @FindBy (css ="#playlists ul li:nth-child(3)")
+    WebElement doubleClickNewPlaylist;
+    @FindBy (css ="[ name='name']")
+    WebElement renameNewPlaylist;
 
     public PlaylistPage checkNumberOfSongsInPlayList() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("")));
@@ -137,13 +140,13 @@ return this;
     }
 
     public PlaylistPage doubleClickNewPlaylist() {
-        WebElement firstPlaylistElement= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists ul li:nth-child(3)")));
-        actions.doubleClick(firstPlaylistElement).perform();
+         wait.until(ExpectedConditions.visibilityOf(doubleClickNewPlaylist));
+        actions.doubleClick(doubleClickNewPlaylist).perform();
         return this;
     }
 
     public PlaylistPage renameNewPlaylist() {
-        WebElement renameNewPlayList =wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[ name='name']")));
+        WebElement renameNewPlayList =wait.until(ExpectedConditions.visibilityOf(renameNewPlaylist));
         renameNewPlayList.sendKeys(Keys.chord(Keys.CONTROL,"A",Keys.BACK_SPACE));
         renameNewPlayList.sendKeys("DiffPlaylist");
         renameNewPlayList.sendKeys(Keys.ENTER);

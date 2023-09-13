@@ -23,7 +23,7 @@ public class ProfileTests extends BaseTest {
         profilePage.clickSaveButton()
                    .waitForPopUpMessage();
 
-        Assert.assertEquals(profilePage.getActualProfileName.getText(), random);
+        Assert.assertEquals(profilePage.getActualProfileName.random);
 
     }
 
