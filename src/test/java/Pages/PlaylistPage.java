@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -17,6 +18,29 @@ public class PlaylistPage extends BasePage {
         super(driver, wait, actions);
 
     }
+    @FindBy (css ="[ name='name']")
+    WebElement newPlayListName;
+    @FindBy (css =".playlist:nth-child(3)")
+    WebElement newPlayList;
+    @FindBy (css =".del.btn-delete-playlist")
+    WebElement deletePlayList;
+    @FindBy (css ="div.success.show")
+    WebElement notificationDeleteNewPlaylist;
+    @FindBy (css ="#songResultsWrapper tr:nth-child(1) td.title")
+    WebElement clickOnSong;
+    @FindBy (css ="#playlists ul li:nth-child(3)")
+    WebElement bisolaPlayList;
+    @FindBy (css =".btn-add-to")
+    WebElement addToButton;
+    @FindBy (css ="#playlists nav ul li:nth-child(1)")
+    WebElement doubleClickPlayList;
+    @FindBy (css ="[data-testid='sidebar-create-playlist-btn']")
+    WebElement clickCreatePlaylistBtn;
+    @FindBy (css ="#playlists  li:nth-child(3) a")
+    WebElement clickOnNewPlayList;
+
+    @FindBy (css =" div.success.show")
+    WebElement playlistNotification;
 
     public PlaylistPage checkNumberOfSongsInPlayList() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("")));
@@ -41,59 +65,59 @@ public class PlaylistPage extends BasePage {
     }
 
     public PlaylistPage clickOnSong() {
-        WebElement clickOnSong = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#songResultsWrapper tr:nth-child(1) td.title")));
+       wait.until(ExpectedConditions.visibilityOf(clickOnSong));
         clickOnSong.click();
         return this;
     }
 
     public PlaylistPage bisolaPlayList() {
-        WebElement bisolaPlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists ul li:nth-child(3)")));
+         wait.until(ExpectedConditions.visibilityOf(bisolaPlayList));
         actions.moveToElement(bisolaPlayList).perform();
         actions.click(bisolaPlayList).perform();
-//        bisolaPlayList.click();
+
         return this;
     }
 
     public PlaylistPage addToButton() {
-        WebElement addTo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".btn-add-to")));
-        addTo.click();
+         wait.until(ExpectedConditions.visibilityOf(addToButton));
+        actions.click(addToButton).perform();
         return this;
     }
 
     public PlaylistPage newPlayList() {
-        WebElement newPlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
+         wait.until(ExpectedConditions.visibilityOf(newPlayList));
         newPlayList.click();
 return this;
     }
 
     public PlaylistPage deleteNewPlayList() {
-        WebElement deletePlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".del.btn-delete-playlist")));
-actions.click(deletePlayList).perform();
+        wait.until(ExpectedConditions.visibilityOf(deletePlayList));
+        actions.click(deletePlayList).perform();
 return this;
 
     }
 
     public PlaylistPage notificationDeleteNewPlaylist() {
-        WebElement notificationDeleteNewPlaylist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+         wait.until(ExpectedConditions.visibilityOf(notificationDeleteNewPlaylist));
         Assert.assertTrue(notificationDeleteNewPlaylist.isDisplayed());
 return this;
     }
 
     public PlaylistPage doubleClickPlayList() {
-        WebElement doubleClickPlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists nav ul li:nth-child(1)")));
+         wait.until(ExpectedConditions.visibilityOf(doubleClickPlayList));
         actions.doubleClick(doubleClickPlayList).perform();
         return this;
     }
 
     public PlaylistPage clickCreatePlaylistBtn() {
-        WebElement clickCreatePlaylistBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='sidebar-create-playlist-btn']")));
+        wait.until(ExpectedConditions.visibilityOf(clickCreatePlaylistBtn));
         actions.moveToElement(clickCreatePlaylistBtn).perform();
         actions.doubleClick(clickCreatePlaylistBtn).perform();
 return this;
     }
 
     public PlaylistPage enterNewPlaylist() {
-        WebElement newPlayListName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[ name='name']")));
+        wait.until(ExpectedConditions.visibilityOf(newPlayListName));
         newPlayListName.sendKeys(Keys.chord(Keys.CONTROL, "A", Keys.BACK_SPACE));
         newPlayListName.sendKeys("GreatPlaylist");
         newPlayListName.sendKeys(Keys.ENTER);
@@ -101,14 +125,14 @@ return this;
     }
 
     public PlaylistPage clickOnNewPlayList() {
-        WebElement newPlayList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#playlists  li:nth-child(3) a")));
-        actions.moveToElement(newPlayList).perform();
+         wait.until(ExpectedConditions.visibilityOf(clickOnNewPlayList));
+        actions.moveToElement(clickOnNewPlayList).perform();
         return this;
     }
 
     public PlaylistPage playlistNotification() {
-        WebElement successNotification= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(" div.success.show")));
-        successNotification.getText();
+        wait.until(ExpectedConditions.visibilityOf(playlistNotification));
+        playlistNotification.getText();
 return this;
     }
 
