@@ -61,7 +61,7 @@ public class Profilepage extends BasePage {
     public String getActualProfileName() {
         wait.until(ExpectedConditions.visibilityOf(actualProfileName));
             return actualProfileName.getText();
-            
+
 
 
 
