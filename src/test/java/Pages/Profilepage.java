@@ -15,6 +15,16 @@ public class Profilepage extends BasePage {
 
     @FindBy(css ="[ name='name']")
     WebElement provideProfileName;
+    @FindBy(css ="[name='current_password']")
+    WebElement currentPassword;
+    @FindBy(css ="button.btn-submit")
+    WebElement clickSaveButton;
+
+   @FindBy(css = "div.success.show")
+    WebElement popUpMessage;
+
+    @FindBy(css ="a.view-profile>span")
+    WebElement actualProfileName;
 
     public Profilepage(WebDriver givenDriver) {
         super(givenDriver);
@@ -32,25 +42,26 @@ public class Profilepage extends BasePage {
     }
 
     public Profilepage provideCurrentPassword(String password) {
-        WebElement currentPassword = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name='current_password']")));
+       wait.until(ExpectedConditions.visibilityOf(currentPassword));
         currentPassword.clear();
         currentPassword.sendKeys(password);
         return this;
     }
 
     public Profilepage clickSaveButton() {
-        WebElement clickSaveButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.btn-submit")));
+        wait.until(ExpectedConditions.visibilityOf(clickSaveButton));
         clickSaveButton.click();
         return this;
     }
 
     public Profilepage waitForPopUpMessage() {
-        WebElement popUpMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
+        wait.until(ExpectedConditions.visibilityOf(popUpMessage));
         return this;
     }
     public String getActualProfileName() {
-            WebElement actualProfileName = driver.findElement(By.cssSelector("a.view-profile>span"));
+        wait.until(ExpectedConditions.visibilityOf(actualProfileName));
             return actualProfileName.getText();
+            
 
 
 
