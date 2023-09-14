@@ -14,10 +14,7 @@ import java.util.List;
 
 public class PlaylistPage extends BasePage {
     //    constructors
-    public PlaylistPage(WebDriver driver, WebDriverWait wait, Actions actions) {
-        super(driver, wait, actions);
 
-    }
     @FindBy (css ="[ name='name']")
     WebElement newPlayListName;
     @FindBy (css =".playlist:nth-child(3)")
@@ -44,6 +41,10 @@ public class PlaylistPage extends BasePage {
     WebElement doubleClickNewPlaylist;
     @FindBy (css ="[ name='name']")
     WebElement renameNewPlaylist;
+
+    public PlaylistPage(WebDriver givenDriver) {
+        super(givenDriver);
+    }
 
     public PlaylistPage checkNumberOfSongsInPlayList() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("")));

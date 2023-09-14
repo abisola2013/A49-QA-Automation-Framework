@@ -12,12 +12,14 @@ import org.testng.Assert;
 import java.util.UUID;
 
 public class Profilepage extends BasePage {
-    public Profilepage(WebDriver driver, WebDriverWait wait, Actions actions) {
-        super(driver, wait, actions);
-        String random = generateRandom();
-    }
+
     @FindBy(css ="[ name='name']")
     WebElement provideProfileName;
+
+    public Profilepage(WebDriver givenDriver) {
+        super(givenDriver);
+    }
+
     public Profilepage provideProfileName(String random) {
         wait.until(ExpectedConditions.visibilityOf(provideProfileName));
       provideProfileName.clear();

@@ -1,3 +1,7 @@
+import Pages.HomePage;
+import Pages.LoginPage;
+import Pages.PlaylistPage;
+import Pages.Profilepage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -5,25 +9,27 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ProfileTests extends BaseTest {
-//    LoginPage loginPage;
-//    HomePage homePage;
-//    Profilepage profilepage;
+
 
 
     @Test
     public void changeProfileName() {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        Profilepage profilepage = new Profilepage(driver);
+
         loginPage.loginWithCorrectCredentials();
-        homepage.clickAvatar();
+        homePage.clickAvatar();
 
-        String random = profilePage.generateRandom();
+        String random = profilepage.generateRandom();
 
-        profilePage.provideCurrentPassword("te$t$tudent")
+        profilepage.provideCurrentPassword("te$t$tudent")
                    .provideProfileName(random);
-        String getActualProfileName;
-        profilePage.clickSaveButton()
+//        String getActualProfileName;
+        profilepage.clickSaveButton()
                    .waitForPopUpMessage();
 
-        Assert.assertEquals(profilePage.getActualProfileName(),random);
+        Assert.assertEquals(profilepage.getActualProfileName(),random);
 
     }
 

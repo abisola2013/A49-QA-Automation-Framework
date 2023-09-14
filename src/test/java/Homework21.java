@@ -1,3 +1,5 @@
+import Pages.LoginPage;
+import Pages.PlaylistPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -8,6 +10,8 @@ public class Homework21 extends BaseTest {
 
     @Test
     public void renamePlaylist(){
+        LoginPage loginPage = new LoginPage(driver);
+        PlaylistPage playlistPage = new PlaylistPage(driver);
 
         loginPage.loginWithCorrectCredentials();
    playlistPage.doubleClickNewPlaylist()

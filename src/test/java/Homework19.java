@@ -1,3 +1,5 @@
+import Pages.LoginPage;
+import Pages.PlaylistPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,6 +10,9 @@ public class Homework19 extends BaseTest {
 
     @Test
     public void deletePlaylist() {
+        LoginPage loginPage = new LoginPage(driver);
+        PlaylistPage playlistPage = new PlaylistPage(driver);
+
         loginPage.loginWithCorrectCredentials();
 
         playlistPage.newPlayList()
