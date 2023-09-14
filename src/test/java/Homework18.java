@@ -1,3 +1,6 @@
+import Pages.HomePage;
+import Pages.LoginPage;
+import Pages.PlaylistPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,10 +11,14 @@ public class Homework18 extends BaseTest{
 
     @Test
     public void playSong(){
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+
         loginPage.loginWithCorrectCredentials();
-        homepage.clickAllSongs();
-        homepage.playASong();
-        homepage. soundBarVisible();
+        homePage.clickAllSongs()
+                .playASong()
+                .soundBarVisible();
     }
 
 

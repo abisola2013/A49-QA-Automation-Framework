@@ -4,39 +4,51 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasePage {
 
-    public LoginPage(WebDriver driver, WebDriverWait wait, Actions actions) {
-        super(driver, wait, actions);
+
+
+    @FindBy (css ="input[type='email']")
+    WebElement emailAddress;
+    @FindBy(css = "input[type='password']")
+    WebElement  passwordField;
+    @FindBy(css = "button[type='submit']")
+    WebElement submitBtn;
+
+    public LoginPage(WebDriver givenDriver) {
+        super(givenDriver);
     }
 
-//    public void loginValidEmailPassword() {
-//        loginWithCorrectCredentials();
-//    }
 
     public void loginWithCorrectCredentials() {
-//        navigateToLoginPage(url);
+//       navigateToLoginPage();//lets add the navigation to koel in our @BeforeMethod
         provideEmail();
         providePassword( );
         clickSubmit();
+
+
     }
 
-    public  void provideEmail(){
-        WebElement emailAddress= wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='email']")));
+    public LoginPage provideEmail(){
+         wait.until(ExpectedConditions.visibilityOf(emailAddress));
         emailAddress.clear();
         emailAddress.sendKeys("abisola.omotoso@testpro.io");
+        return this;
     }
 
-    public void providePassword() {
-        WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='password']")));
+    public LoginPage providePassword() {
+         wait.until(ExpectedConditions.visibilityOf(passwordField));
         passwordField.clear();
         passwordField.sendKeys("te$t$tudent");
+        return this;
     }
-    public  void clickSubmit() {
-        WebElement submitBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[type='submit']")));
+    public  LoginPage clickSubmit() {
+        wait.until(ExpectedConditions.visibilityOf(submitBtn));
         submitBtn.click();
+        return this;
     }
 }

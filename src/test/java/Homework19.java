@@ -1,3 +1,5 @@
+import Pages.LoginPage;
+import Pages.PlaylistPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,14 +9,15 @@ import org.testng.annotations.Test;
 public class Homework19 extends BaseTest {
 
     @Test
-    public void deletePlaylist() throws InterruptedException {
+    public void deletePlaylist() {
+        LoginPage loginPage = new LoginPage(driver);
+        PlaylistPage playlistPage = new PlaylistPage(driver);
+
         loginPage.loginWithCorrectCredentials();
-//        Thread.sleep(3000);
-        playlistPage.newPlayList();
-//        Thread.sleep(3000);
-        playlistPage.deleteNewPlayList();
-//        Thread.sleep(3000);
-       playlistPage. notificationDeleteNewPlaylist();
+
+        playlistPage.newPlayList()
+                    .deleteNewPlayList()
+                    .notificationDeleteNewPlaylist();
 
     }
 
