@@ -9,10 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
@@ -22,31 +19,59 @@ public class BaseTest {
     public String url = "https://qa.koel.app/";
 
     @BeforeSuite
-    static void setupClass() {
+    public void setupSuite() {
+        String browser =System.getProperty("browser");
+        driver=setupBrowser(browser);
 
 //        WebDriverManager.chromedriver().setup();
-        WebDriverManager.firefoxdriver().setup();
+//        WebDriverManager.firefoxdriver().setup();
     }
 
     @BeforeMethod
     public void launchBrowser() {
-        //      Added ChromeOptions argument below to fix websocket error
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-notifications");
-        options.addArguments("--start-maximized");
-//        driver = new ChromeDriver(options);
+//        //      Added ChromeOptions argument below to fix websocket error
+////        ChromeOptions options = new ChromeOptions();
+////        options.addArguments("--remote-allow-origins=*");
+////        options.addArguments("--disable-notifications");
+////        options.addArguments("--start-maximized");
+////        driver = new ChromeDriver(options);
         driver= new FirefoxDriver();
           driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.get(url);
-        //removed extra lines, our @BeforeMethod annotated will setup our WebDriver and navigate to Koel
-    }
 
+    }
 
     @AfterMethod
     public void closeBowser() {
         driver.quit();
+    }
+WebDriver setupBrowser(String browser){
+
+        switch(browser){
+            case"firefox":
+                return setupFirefox();
+            case "chrome":
+                return setupChrome();
+//            case "edge":
+//                return setEdge();
+            default:
+                return setupChrome();
+        }
+}
+    WebDriver setupFirefox(){
+        WebDriverManager.firefoxdriver().setup();
+        driver=new FirefoxDriver();
+        return driver;
+    }
+   WebDriver setupChrome(){
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-notifications");
+        options.addArguments("--start-maximized");
+        driver = new ChromeDriver(options);
+        return driver;
     }
 }
 
