@@ -24,7 +24,8 @@ public class BaseTest {
 
     @BeforeSuite
     public void setupSuite() throws MalformedURLException {
-        String browser =System.getProperty("browser");
+       String browser =System.getProperty("browser");
+
         driver=setupBrowser(browser);
 
 //        WebDriverManager.chromedriver().setup();
