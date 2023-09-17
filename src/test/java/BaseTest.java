@@ -31,11 +31,11 @@ public class BaseTest {
 
     @BeforeClass
     public void setup() throws MalformedURLException {
-        threadDriver.set(setupBrowser(!(System.getProperty("browser") == null) ? System.getProperty("browser") : "chrome"));
+        threadDriver.set(setupBrowser(!(System.getProperty("browser") == null)?System.getProperty("browser") : "chrome"));
         System.out.println("Browser setup by Thread" + Thread.currentThread().getId() + "and Driver reference is :" + getThreadDriver());
 
-        String browser = System.getProperty("browser");
-        threadDriver.set(setupBrowser(browser));
+//        String browser = System.getProperty("browser");
+//        threadDriver.set(setupBrowser(browser));
 
 //        driver=setupBrowser(browser);
 
@@ -65,26 +65,25 @@ public class BaseTest {
 //    driver.quit();
     }
 public WebDriver setupBrowser(String browser) throws MalformedURLException {
-    DesiredCapabilities caps =new DesiredCapabilities();
-    String gridURL=" http://192.168.1.196:4444 ";
+//    DesiredCapabilities caps =new DesiredCapabilities();
+//    String gridURL=" http://192.168.1.196:4444 ";
         switch(browser){
             case"firefox":
                 return setupFirefox();
             case "chrome":
                 return setupChrome();
-
-            case"grid-chrome":
-                caps.setCapability("browserName","chrome");
-                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),caps);
-            case"grid-firefox":
-                caps.setCapability("browserName","firefox");
-                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),caps);
+            case "cloud":
+                return setupLambda();
+//            case"grid-chrome":
+//                caps.setCapability("browserName","chrome");
+//                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),caps);
+//            case"grid-firefox":
+//                caps.setCapability("browserName","firefox");
+//                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(),caps);
 //            case "edge":
 //                return setEdge();
             default:
                 return setupChrome();
-            case "cloud":
-                return setupLambda();
         }
 }
     WebDriver setupFirefox(){

@@ -23,7 +23,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver givenDriver) {
         super(givenDriver);
-//        wait= new WebDriverWait(givenDriver,Duration.ofSeconds(10));
+        wait= new WebDriverWait(givenDriver,Duration.ofSeconds(10));
     }
 
     public void loginWithCorrectCredentials() {
