@@ -14,10 +14,10 @@ public class BasePage {
     WebDriverWait wait;
     Actions actions;
 
-    public BasePage(WebDriver givenDriver){
-        driver = givenDriver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        actions = new Actions(driver);
+    public BasePage(WebDriver driver){
+        this.driver = driver;
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//        actions = new Actions(driver);
         PageFactory.initElements(driver,this);
     }
 

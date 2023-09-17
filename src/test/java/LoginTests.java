@@ -7,9 +7,9 @@ public class LoginTests extends BaseTest {
     LoginPage loginPage;
 
     @BeforeMethod
-    void setup() {
-        loginPage = new LoginPage(driver);
-        driver.get(url);
+    public  void setup() {
+        loginPage = new LoginPage(getThreadDriver());
+       getThreadDriver().get(url);
     }
 
     @Test
