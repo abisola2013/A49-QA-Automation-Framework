@@ -21,9 +21,9 @@ public class LoginPage extends BasePage {
     @FindBy(css = "button[type='submit']")
     WebElement submitBtn;
 
-    public LoginPage(WebDriver givenDriver) {
-        super(givenDriver);
-        wait= new WebDriverWait(givenDriver,Duration.ofSeconds(10));
+    public LoginPage(WebDriver driver) {
+        super(driver);
+        wait= new WebDriverWait(driver,Duration.ofSeconds(10));
     }
 
     public void loginWithCorrectCredentials() {

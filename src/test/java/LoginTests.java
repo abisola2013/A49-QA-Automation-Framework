@@ -8,8 +8,8 @@ public class LoginTests extends BaseTest {
 
     @BeforeMethod
     public  void setup() {
-        loginPage = new LoginPage(driver);
-        driver.get(url);
+        loginPage = new LoginPage(getThreadDriver());
+       getThreadDriver().get(url);
     }
 
     @Test
