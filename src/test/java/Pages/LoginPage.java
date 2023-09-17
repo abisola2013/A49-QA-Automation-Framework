@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class LoginPage extends BasePage {
 
 
@@ -21,8 +23,8 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver givenDriver) {
         super(givenDriver);
+//        wait= new WebDriverWait(givenDriver,Duration.ofSeconds(10));
     }
-
 
     public void loginWithCorrectCredentials() {
 //       navigateToLoginPage();//lets add the navigation to koel in our @BeforeMethod
