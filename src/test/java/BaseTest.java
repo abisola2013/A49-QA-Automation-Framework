@@ -29,11 +29,11 @@ public class BaseTest {
         return threadDriver.get();
     };
 
-    @BeforeClass
+    @BeforeMethod
     public void setup() throws MalformedURLException {
         threadDriver.set(setupBrowser(!(System.getProperty("browser") == null)?System.getProperty("browser") : "chrome"));
         System.out.println("Browser setup by Thread" + Thread.currentThread().getId() + "and Driver reference is :" + getThreadDriver());
-
+getThreadDriver().get(url);
 //        String browser = System.getProperty("browser");
 //        threadDriver.set(setupBrowser(browser));
 

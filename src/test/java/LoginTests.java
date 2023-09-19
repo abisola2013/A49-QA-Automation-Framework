@@ -6,15 +6,15 @@ import org.testng.annotations.Test;
 public class LoginTests extends BaseTest {
     LoginPage loginPage;
 
-    @BeforeMethod
-    public  void setup() {
-        loginPage = new LoginPage(getThreadDriver());
-       getThreadDriver().get(url);
-    }
+//    @BeforeMethod
+//    public  void setup() {
+//        loginPage = new LoginPage(getThreadDriver());
+//       getThreadDriver().get(url);
+//    }
 
     @Test
     public void loginValidEmailPassword() {
-
+LoginPage loginPage =new LoginPage(getThreadDriver());
         loginPage.loginWithCorrectCredentials();
     }
 
