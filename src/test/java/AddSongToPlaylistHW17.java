@@ -1,10 +1,9 @@
 
 import Pages.HomePage;
-import Pages.LoginPage;
 import Pages.PlaylistPage;
 import org.testng.annotations.Test;
 
-public class Homework17 extends BaseTest {
+public class AddSongToPlaylistHW17 extends BaseTest {
 
 
     @Test
