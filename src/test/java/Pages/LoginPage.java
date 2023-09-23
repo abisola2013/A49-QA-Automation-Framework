@@ -1,9 +1,8 @@
 package Pages;
 
-import org.openqa.selenium.By;
+import io.netty.channel.unix.IovArray;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,7 +19,12 @@ public class LoginPage extends BasePage {
     WebElement  passwordField;
     @FindBy(css = "button[type='submit']")
     WebElement submitBtn;
-
+    @FindBy(css = "input[type='email']")
+    WebElement wrongEmail;
+    @FindBy(css = "input[type='password']")
+     WebElement wrongPassword;
+    @FindBy(css="input[type='email']")
+    WebElement emptyEmail;
     public LoginPage(WebDriver driver) {
         super(driver);
         wait= new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -33,6 +37,19 @@ public class LoginPage extends BasePage {
         clickSubmit();
 
 
+    }
+
+    public void loginWithInvalidCredentials() {
+    wrongEmail();
+    wrongPassword();
+    clickSubmit();
+
+    }
+
+    public void loginWitheEmptyEmail(){
+        emptyEmail();
+        providePassword();
+        clickSubmit();
     }
 
     public LoginPage provideEmail(){
@@ -52,5 +69,25 @@ public class LoginPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(submitBtn));
         submitBtn.click();
         return this;
+    }
+
+    public  LoginPage  wrongEmail(){
+        wait.until(ExpectedConditions.visibilityOf(wrongEmail));
+        wrongEmail.clear();
+        wrongEmail.sendKeys("oyo@yahoo.com");
+        return this;
+    }
+    public LoginPage wrongPassword(){
+        wait.until(ExpectedConditions.visibilityOf(wrongPassword));
+        wrongPassword.clear();
+        wrongPassword.sendKeys("teststudent");
+        return this;
+    }
+
+    public LoginPage emptyEmail(){
+     wait.until(ExpectedConditions.visibilityOf(emptyEmail));
+     emptyEmail.clear();
+       emptyEmail.sendKeys("");
+             return this;
     }
 }

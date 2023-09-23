@@ -1,10 +1,6 @@
 import Pages.HomePage;
 import Pages.LoginPage;
-import Pages.PlaylistPage;
-import Pages.Profilepage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import Pages.ProfilePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,7 +12,7 @@ public class ProfileTests extends BaseTest {
     public void changeProfileName() {
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
-        Profilepage profilepage = new Profilepage(driver);
+        ProfilePage profilepage = new ProfilePage(driver);
 
         loginPage.loginWithCorrectCredentials();
         homePage.clickAvatar();

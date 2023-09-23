@@ -29,4 +29,14 @@ test {
             suites "src/test/resources/NewTestNG.xml"
         }
     }
+    task Smoke(type:Test){
+        useTestNG(){
+            suites"src/test/resources/SmokeTests.xml"
+        }
+    }
+    task Regression(type:Test){
+        useTestNG(){
+            suites"src/test/resources/RegressionTests.xml"
+        }
+    }
 }

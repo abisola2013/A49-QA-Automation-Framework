@@ -17,7 +17,18 @@ public class LoginTests extends BaseTest {
 
         loginPage.loginWithCorrectCredentials();
     }
-
+    @Test
+    public void loginWithInvalidCredentials(){
+    loginPage.loginWithInvalidCredentials();
+    }
+    @Test
+    public void loginEmptyEmail(){
+        loginPage.loginWitheEmptyEmail();
+    }
+    @Test
+   public void loginEmptyPassword(){
+   loginPage.loginWitheEmptyEmail();
+    }
 //    @Test
 //    public void inavlidPasswordEmail(){
 //
