@@ -9,7 +9,7 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.UUID;
 
-public class BasePage {
+public class  BasePage {
     WebDriver driver;
     WebDriverWait wait;
     Actions actions;
