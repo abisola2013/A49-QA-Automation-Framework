@@ -16,13 +16,13 @@ dependencies {
 }
    test{
        useTestNG(){
-           suites"src/test/resources/${suite}.xml"
+           suites"src/test/resources/TestNG.xml"
            systemProperty "browser",System.getProperty("browser")
        }
    }
 test {
     useTestNG() {
-        suites "src/test/resources/TestNG.xml"
+        suites "src/test/resources/${suite}.xml"
         systemProperty"browser",System.getProperty("browser")
     }
     task customTask(type: Test) {
@@ -33,13 +33,13 @@ test {
 
     task testSmoke(type:Test){
         useTestNG{
-            suites"src/test/resources/Smoke.xml"
+            suites"src/test/resources/${suite}.xml"
             systemProperty"browser",System.getProperty("browser")
         }
     }
     task testRegression(type:Test){
         useTestNG{
-            suites"src/test/resources/Regression.xml"
+            suites"src/test/resources/${suite}.xml"
             systemProperty"browser",System.getProperty("browser")
         }
     }
